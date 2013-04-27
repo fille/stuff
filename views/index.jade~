@@ -1,0 +1,31 @@
+!!!5
+html
+	head
+	title - blog
+	link(href="bootstrap/css/bootstrap.css", rel="stylesheet")
+	<script src="jquery-1.9.1.min.js"></script>
+	<script src="knockout-2.2.1.js"></script>
+	<script src="ViewModel.js"></script>
+	script(type="text/javascript")
+		var model;
+		$(function() {
+			model = new ViewModel();
+			ko.applyBindings(model);
+		})	
+	body
+		div(class="navbar navbar-inverse navbar-fixed-top")
+			div.navbar-inner
+				div.container
+					div(class="nav-collapse collapse")
+						ul.nav
+							li 
+								a Home
+		div(data-bind="template:{name:selectedView()}",style="margin-top:100px")
+		script(type="text/html",id="start")
+			form(method="post", action="/login")
+					ul
+						li
+							input(type="text",name="user")
+						li	
+							input(type="submit")
+					
